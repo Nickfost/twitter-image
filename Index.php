@@ -55,11 +55,11 @@ if ($twitter_images_config['images_only'] = true){
 } else {
 	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject'];
 }
-$dataphp = json_decode(file_get_contents($url));
-
+$dataphp = json_decode(file_get_contents($url),true);
+var_dump($dataphp);
 echo"
     $.getJSON(url, function(data) {
-      id = ".$dataphp['max_id']-$i.";
+      id = ".$dataphp[]-$i.";
       var url = \"https://api.twitter.com/1/statuses/oembed.json?callback=?&id=\"+id+\"&align=center&maxwidth=900&hide_media=false&lang=en\";
       $.getJSON(url, function(data) {
         $('#Title').after(data.html);
