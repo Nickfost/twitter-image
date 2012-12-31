@@ -48,6 +48,8 @@
 for ($i = 0; $i < $twitter_images_config['amount']; $i++){
 	echo "    <script type=\"text/javascript\">
     var id = 0;";
+    if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
+	else { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?>'"; <?php }
 if ($twitter_images_config['images_only'] = true){
 	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject']."%20pic.twitter.com";
 } else {
@@ -56,7 +58,7 @@ if ($twitter_images_config['images_only'] = true){
 $dataphp = json_decode(file_get_contents($url));
 
 echo"
-    $.getJSON() {
+    $.getJSON(url, function(data) {
       id = ".$dataphp['max_id']-$i.";
       var url = \"https://api.twitter.com/1/statuses/oembed.json?callback=?&id=\"+id+\"&align=center&maxwidth=900&hide_media=false&lang=en\";
       $.getJSON(url, function(data) {
