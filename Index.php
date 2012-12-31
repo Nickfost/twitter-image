@@ -6,7 +6,13 @@
 	$twitter_images_config = array();
 	// Subject or hashtag you can put a word here or a hashtag (defualt:#puppies)
 	$twitter_images_config['subject'] = '#puppies';
+	// Only display images (defualt: true)
+	$twitter_images_config['images_only'] = true;
 	
+	
+	///////////        ////////////////
+	// STUFF //        // DONT TOUCH //
+	///////////        ////////////////
 
 ?>
 <html>
@@ -32,7 +38,10 @@
     </style>
   </head>
   <body id="content">
-  <center><div id="Title" class="cameron" style="font-size:4em; padding-bottom:50px;">Latest <?php $twitter_images_config['subject'] ?></div><center>
+<?php
+	if ($twitter_images_config['images_only'] == true ) {echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest." $twitter_images_config['subject'] ". pic.twitter.com</div><center>";}
+	else {echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest." $twitter_images_config['subject'] ".</div><center>";}
+?>
   <script type="text/javascript">
     var id = 0;
     var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23mcscreenshot pic.twitter.com'";
