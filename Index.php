@@ -43,10 +43,11 @@
   <body id="content">
   <center><div id='Title' class='TitleClass' style='font-size:4em; padding-bottom:50px;'>Latest #<?php echo $twitter_images_config['subject'] ?></div><center>
 
-    <script type="text/javascript">
-    var id = 0;
+
 <?php
 for ($i = 0; $i < $twitter_images_config['amount']; $i++){
+	echo "    <script type=\"text/javascript\">
+    var id = 0;"
 ?>
 <?php	if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
 	else { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?>'"; <?php }
