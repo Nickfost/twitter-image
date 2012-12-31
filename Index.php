@@ -48,21 +48,22 @@
 for ($i = 0; $i < $twitter_images_config['amount']; $i++){
 	echo "    <script type=\"text/javascript\">
     var id = 0;"
-?>
-<?php	if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
-	else { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?>'"; <?php }
+if ($twitter_images_config['images_only'] = true ){
+	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject']." pic.twitter.com";
+} else {
+	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject'];
+}
+$dataphp = json_decode(file_get_contents($url));
 
 echo"
-    $.getJSON(url, function(data) {
-      id = data.max_id_str-".$i.";
+    $.getJSON() {
+      id = ".$dataphp['max_id']-$i.";
       var url = \"https://api.twitter.com/1/statuses/oembed.json?callback=?&id=\"+id+\"&align=center&maxwidth=900&hide_media=false&lang=en\";
       $.getJSON(url, function(data) {
         $('#Title').after(data.html);
       });
     });
     </script>";
-    ?>
-<?php
 }
 ?>
 
