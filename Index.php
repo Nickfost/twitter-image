@@ -42,7 +42,7 @@
   </head>
   <body id="content">
   <center><div id='Title' class='TitleClass' style='font-size:4em; padding-bottom:50px;'>Latest #<?php echo $twitter_images_config['subject'] ?></div><center>
-    <?php
+
     <script type="text/javascript">
     var id = 0;
 <?php
