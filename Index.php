@@ -48,7 +48,7 @@
 <?php
 for ($i = 0; $i > $twitter_images_config['amount']; $i++){
 ?>
-	if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
+<?php	if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
 	else { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?>'"; <?php }
 ?>
 <?php
@@ -60,7 +60,7 @@ echo"
         $('#Title').after(data.html);
       });
     });
-    </script>"
+    </script>";
     ?>
 <?php
 }
