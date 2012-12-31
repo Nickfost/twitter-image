@@ -17,6 +17,14 @@
 	// STUFF //        // DONT TOUCH //
 	///////////        ////////////////
 
+	if ($twitter_images_config['images_only'] = true){
+	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject']."%20pic.twitter.com";
+} else {
+	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject'];
+}
+	$dataphp = json_decode(file_get_contents($url),true);
+	var_dump($dataphp);
+$maxid=$dataphp['max_id_str'];
 ?>
 <html>
 	<head>
@@ -50,16 +58,11 @@ for ($i = 0; $i < $twitter_images_config['amount']; $i++){
     var id = 0;";
     if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
 	else { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?>'"; <?php }
-if ($twitter_images_config['images_only'] = true){
-	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject']."%20pic.twitter.com";
-} else {
-	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject'];
-}
-$dataphp = json_decode(file_get_contents($url),true);
-var_dump($dataphp);
+
+
 echo"
     $.getJSON(url, function(data) {
-      id = ".$dataphp[]-$i.";
+      id = ".$maxid-$i.";
       var url = \"https://api.twitter.com/1/statuses/oembed.json?callback=?&id=\"+id+\"&align=center&maxwidth=900&hide_media=false&lang=en\";
       $.getJSON(url, function(data) {
         $('#Title').after(data.html);
