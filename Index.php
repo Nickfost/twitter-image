@@ -21,7 +21,7 @@
 <html>
 	<head>
 		<title>Latest #<?php echo $twitter_images_config['subject']; ?> </title>
-		<script src="include/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <style type="text/css">
       body {
       }
