@@ -46,12 +46,11 @@
     <script type="text/javascript">
     var id = 0;
 <?php
-for ($i = 0; $i > $twitter_images_config['amount']; $i++){
+for ($i = 0; $i < $twitter_images_config['amount']; $i++){
 ?>
 <?php	if ($twitter_images_config['images_only'] = true ) { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'"; <?php }
 	else { ?>    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?>'"; <?php }
-?>
-<?php
+
 echo"
     $.getJSON(url, function(data) {
       id = data.max_id_str-".$i.";
