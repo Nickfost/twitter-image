@@ -41,10 +41,14 @@
   <body id="content">
 <?php
 	if ($twitter_images_config['images_only'] = true ) {
-		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest ."$twitter_images_config['subject']". pic.twitter.com</div><center>";
+		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest";
+		echo $twitter_images_config['subject'];
+		echo" pic.twitter.com</div><center>";
 	}
 	else {
-		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest." $twitter_images_config['subject'] ".</div><center>";
+		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest";
+		 echo $twitter_images_config['subject'];
+		 echo "</div><center>";
 	}
 ?>
   <script type="text/javascript">
