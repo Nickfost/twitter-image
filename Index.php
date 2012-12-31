@@ -4,8 +4,8 @@
 	////////////
 	
 	$twitter_images_config = array();
-	// Subject or hashtag you can put a word here or a hashtag (defualt:#puppies)
-	$twitter_images_config['subject'] = '#puppies';
+	// Hashtag you can put a any hashtag here (defualt:puppies)
+	$twitter_images_config['subject'] = 'puppies';
 	// Only display images (defualt: true)
 	$twitter_images_config['images_only'] = true;
 	// Number of Tweets to display
@@ -18,7 +18,7 @@
 ?>
 <html>
 	<head>
-		<title>Latest <?php $twitter_images_config['subject']; ?> </title>
+		<title>Latest #<?php echo $twitter_images_config['subject']; ?> </title>
 		<script src="include/jquery.min.js"></script>
     <style type="text/css">
       body {
@@ -41,19 +41,19 @@
   <body id="content">
 <?php
 	if ($twitter_images_config['images_only'] = true ) {
-		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest";
+		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest #";
 		echo $twitter_images_config['subject'];
 		echo" pic.twitter.com</div><center>";
 	}
 	else {
-		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest";
-		 echo $twitter_images_config['subject'];
-		 echo "</div><center>";
+		echo "  <center><div id='Title' class='cameron' style='font-size:4em; padding-bottom:50px;'>Latest #";
+		echo $twitter_images_config['subject'];
+		echo "</div><center>";
 	}
 ?>
   <script type="text/javascript">
     var id = 0;
-    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23mcscreenshot pic.twitter.com'";
+    var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23<?php echo $twitter_images_config['subject']; ?> pic.twitter.com'";
     $.getJSON(url, function(data) {
       id = data.max_id_str;
       var url = "https://api.twitter.com/1/statuses/oembed.json?callback=?&id="+id+"&align=center&maxwidth=900&hide_media=false&lang=en";
