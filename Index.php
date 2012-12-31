@@ -21,7 +21,7 @@
     </style>
   </head>
   <body id="content">
-  <center><div id="Title" class="cameron" style="font-size:4em; padding-bottom:50px;">Latest #MCSreenshot</div><center>
+  <center><div id="Title" class="cameron" style="font-size:4em; padding-bottom:50px;">Latest #MCScreenshot</div><center>
   <script type="text/javascript">
     var id = 0;
     var url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23mcscreenshot&pic.twitter.com'";
