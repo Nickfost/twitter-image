@@ -23,7 +23,6 @@
 	$url = "http://search.twitter.com/search.json?callback=?&rpp=1&q='%23".$twitter_images_config['subject'];
 }
 	$dataphp = json_decode(file_get_contents($url),true);
-	var_dump($dataphp);
 $maxid=$dataphp['max_id_str'];
 ?>
 <html>
