@@ -56,5 +56,6 @@
       });
     });
     </script>
+    <center>Powered by <a href="http://twitter.com/jhughesky">@jhughesky</a></center>
 	</body>
 </html>
