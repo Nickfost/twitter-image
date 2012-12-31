@@ -5,7 +5,7 @@
 
 	$twitter_images_config = array();
 	// Subject or hashtag you can put a word here or a hashtag (defualt:#puppies)
-	$twitter_images_config['subject'] = '#minecraft
+	$twitter_images_config['subject'] = '#minecraft';
 
 
 	///////////        ////////////////
